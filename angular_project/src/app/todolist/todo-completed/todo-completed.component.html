@@ -7,10 +7,8 @@
         <p>Opps, non ci sono task</p>
     </div>
     <div id="list-todo-completed">
-        <ul>
-            <li>Imparare Angular</li>
-            <li>
-            </li>
+        <ul *ngFor="let item of todos">
+            <li>{{item.title}}</li>
         </ul>
     </div>
 </div>

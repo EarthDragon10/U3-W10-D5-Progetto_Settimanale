@@ -8,9 +8,13 @@ import { TodosService } from 'src/app/todos.service';
   styleUrls: ['./todo-completed.component.scss'],
 })
 export class TodoCompletedComponent implements OnInit {
+  todos: Todo[] = [];
+
   constructor(private todosService: TodosService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.todos = this.todosService.todosList;
+  }
 
   removeToDo(id: number) {
     this.todosService.removeToDo(id);

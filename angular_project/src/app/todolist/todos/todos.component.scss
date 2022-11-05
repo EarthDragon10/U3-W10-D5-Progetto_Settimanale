@@ -1,0 +1,17 @@
+.btn-delete {
+  border: none;
+  background-color: red;
+  padding: 2px 5px;
+}
+
+.btn-checked {
+  border: none;
+  background-color: transparent;
+  padding: 5px;
+}
+
+#list-todo {
+  ul {
+    list-style-type: none;
+  }
+}

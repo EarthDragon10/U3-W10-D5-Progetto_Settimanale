@@ -1,13 +1,13 @@
 <div id="box-todos">
-    <!-- <div id="loading-task">
-        <p>Recupero Task...</p>
-    </div> -->
+
     <div id="error-task" *ngIf="controlLength">
         <p>Opps, non ci sono task</p>
     </div>
-    <div id="list-todo-completed">
+    <div id="list-todo">
         <ul *ngFor="let item of todoArr">
-            <li>{{item.title}} ✅</li>
+            <li>- {{item.title}} <button class="btn-delete" (click)="removeToDo(item)">X</button>
+                <button class="btn-checked" (click)="checkCompleteToDo(item)">✅</button>
+            </li>
         </ul>
     </div>
     <input [(ngModel)]="todoObj.title" type="text" name="" id="">

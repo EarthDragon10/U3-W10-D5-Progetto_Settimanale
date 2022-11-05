@@ -5,6 +5,7 @@ import { TodosComponent } from './todolist/todos/todos.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'todos' },
+  { path: '', component: TodosComponent },
   { path: 'completed', component: TodoCompletedComponent },
 ];
 

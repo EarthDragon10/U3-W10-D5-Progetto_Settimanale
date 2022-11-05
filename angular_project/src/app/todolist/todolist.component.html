@@ -1,7 +1,6 @@
 <div id="app-todolist">
     <div>
-        <h3><span>Todos</span> <span class="txt-fucsia">Completati</span></h3>
+        <h3><a [routerLink]="['/']">Todos</a> <a [routerLink]="['/completed']">Completati</a></h3>
     </div>
-    <app-todos></app-todos>
-    <app-todo-completed></app-todo-completed>
+    <router-outlet></router-outlet>
 </div>

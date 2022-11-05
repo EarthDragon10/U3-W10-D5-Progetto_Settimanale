@@ -20,23 +20,36 @@ export class TodosComponent implements OnInit {
     this.todoArr = this.todosService.todosList;
   }
 
-  addToDo() {
-    if (this.todosService.todosList.length > 0) {
+  // ngOnChanges(): void {
+  //   this.todoArr = this.todosService.todosList;
+  // }
+
+  addToDo(): void {
+    if (this.todosService.todosList.length > -1) {
       this.controlLength = false;
     }
+
     this.todoObj.id = this.idObj++;
-    this.todoObj.completed = true;
+    this.todoObj.completed = false;
 
     console.log(this.todoObj);
     this.todosService.addToDo(this.todoObj);
 
     this.todoObj = new TodoObj();
   }
-  // addToDo(this.todoObj) {
-  //   this.todosService.addToDo(todoObj);
-  // }
 
-  // removeToDo(id: number) {
-  //   this.todosService.removeToDo(id);
-  // }
+  checkCompleteToDo(item: Todo): void {
+    item.completed = true;
+
+    console.log(this.todoObj);
+
+    this.todosService.checkCompleteToDo(item.id);
+
+    this.todoArr = this.todosService.todosList;
+  }
+
+  removeToDo(item: Todo): void {
+    this.todosService.removeToDo(item.id);
+    this.todoArr = this.todosService.todosList;
+  }
 }

@@ -1,5 +1,15 @@
-<h3>Todos</h3>
 <div id="box-todos">
-    <input type="text" name="" id="">
-    <button>+</button>
+    <!-- <div id="loading-task">
+        <p>Recupero Task...</p>
+    </div> -->
+    <div id="error-task" *ngIf="controlLength">
+        <p>Opps, non ci sono task</p>
+    </div>
+    <div id="list-todo-completed">
+        <ul *ngFor="let item of todoArr">
+            <li>{{item.title}} ✅</li>
+        </ul>
+    </div>
+    <input [(ngModel)]="todoObj.title" type="text" name="" id="">
+    <button (click)="addToDo()">+</button>
 </div>

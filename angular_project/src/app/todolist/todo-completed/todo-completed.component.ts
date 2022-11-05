@@ -16,7 +16,7 @@ export class TodoCompletedComponent implements OnInit {
     this.todos = this.todosService.todosList;
   }
 
-  removeToDo(id: number) {
-    this.todosService.removeToDo(id);
-  }
+  // removeToDo(id: number) {
+  //   this.todosService.removeToDo(id);
+  // }
 }

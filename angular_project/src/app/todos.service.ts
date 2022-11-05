@@ -5,7 +5,7 @@ import { Todo } from './todo';
   providedIn: 'root',
 })
 export class TodosService {
-  todosList: Todo[] = [{ id: 1, title: 'Fare la spesa', completed: true }];
+  todosList: Todo[] = [];
 
   constructor() {}
 
@@ -15,7 +15,7 @@ export class TodosService {
     this.todosList.push(obj);
   }
 
-  removeToDo(id: number): void {
-    this.todosList.splice(id, 1);
-  }
+  // removeToDo(id: number): void {
+  //   this.todosList.splice(id, 1);
+  // }
 }

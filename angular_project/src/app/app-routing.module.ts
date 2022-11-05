@@ -5,7 +5,7 @@ import { TodosComponent } from './todolist/todos/todos.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'todos' },
-  { path: '/completed', component: TodoCompletedComponent },
+  { path: 'completed', component: TodoCompletedComponent },
 ];
 
 @NgModule({

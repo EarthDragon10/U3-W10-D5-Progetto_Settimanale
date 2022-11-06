@@ -36,6 +36,8 @@ export class TodosComponent implements OnInit {
     this.controlLength = false;
     this.loadingBoolean = true;
 
+    console.log(this.controlLength);
+
     const addFuncToDo = (): void => {
       this.todoObj.id = this.idObj++;
       this.todoObj.completed = false;

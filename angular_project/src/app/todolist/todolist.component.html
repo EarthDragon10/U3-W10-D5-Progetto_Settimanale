@@ -1,6 +1,9 @@
 <div id="app-todolist">
     <div>
-        <h3><a [routerLink]="['/']">Todos</a> <a [routerLink]="['/completed']">Completati</a></h3>
+        <h3><a [routerLink]="['/']" routerLinkActive="router-link-active" [ngClass]="linkActive"
+                (click)="changeAStyle()">Todos</a> <a [routerLink]="['/completed']"
+                routerLinkActive="router-link-active" [ngClass]="linkActive2" (click)="changeAStyle()">Completati</a>
+        </h3>
     </div>
     <router-outlet></router-outlet>
 </div>

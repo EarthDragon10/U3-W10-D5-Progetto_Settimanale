@@ -13,6 +13,7 @@ export class TodosComponent implements OnInit {
   todoArr: Todo[] = [];
   idObj: number = 0;
   controlLength: boolean = true;
+  loadingBoolean: boolean = false;
 
   constructor(private todosService: TodosService) {}
 
@@ -20,22 +21,34 @@ export class TodosComponent implements OnInit {
     this.todoArr = this.todosService.todosList;
   }
 
-  // ngOnChanges(): void {
-  //   this.todoArr = this.todosService.todosList;
-  // }
+  ngDoCheck(): void {
+    this.controlLength = false;
 
-  addToDo(): void {
-    if (this.todosService.todosList.length > -1) {
-      this.controlLength = false;
+    if (this.todoArr.length == 0) {
+      this.controlLength = true;
     }
 
-    this.todoObj.id = this.idObj++;
-    this.todoObj.completed = false;
+    console.log('Hook DoCheck é attivata');
+    console.log(this.todoArr.length);
+  }
 
-    console.log(this.todoObj);
-    this.todosService.addToDo(this.todoObj);
+  addToDo(): void {
+    this.controlLength = false;
+    this.loadingBoolean = true;
 
-    this.todoObj = new TodoObj();
+    const addFuncToDo = (): void => {
+      this.todoObj.id = this.idObj++;
+      this.todoObj.completed = false;
+
+      console.log(this.todoObj);
+      this.todosService.addToDo(this.todoObj);
+
+      this.todoObj = new TodoObj();
+
+      this.loadingBoolean = false;
+    };
+
+    setTimeout(addFuncToDo, 2000);
   }
 
   checkCompleteToDo(item: Todo): void {

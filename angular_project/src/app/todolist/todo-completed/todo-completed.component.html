@@ -1,4 +1,10 @@
 <div id="box-completati">
+    <div id="loading-task" *ngIf="loadingBoolean">
+        <p>Recupero Task...</p>
+    </div>
+    <div id="error-task" *ngIf="controlLength">
+        <p>Opps, non ci sono task</p>
+    </div>
     <ul *ngFor="let item of todosCompleted">
         <li>{{item.title}}</li>
     </ul>

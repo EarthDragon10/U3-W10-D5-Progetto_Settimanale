@@ -1,5 +1,8 @@
 <div id="box-todos">
 
+    <div id="loading-task" *ngIf="loadingBoolean">
+        <p>Recupero Task...</p>
+    </div>
     <div id="error-task" *ngIf="controlLength">
         <p>Opps, non ci sono task</p>
     </div>

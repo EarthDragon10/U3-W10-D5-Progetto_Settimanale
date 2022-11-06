@@ -10,10 +10,27 @@ import { TodoObj } from 'src/app/classes/todo-obj';
 })
 export class TodoCompletedComponent implements OnInit {
   todosCompleted: Todo[] = [];
+  loadingBoolean: boolean = false;
+  controlLength: boolean = false;
 
   constructor(private todosService: TodosService) {}
 
   ngOnInit(): void {
-    this.todosCompleted = this.todosService.todosCompletedList;
+    this.loadingBoolean = true;
+
+    setTimeout(() => {
+      this.todosCompleted = this.todosService.todosCompletedList;
+      this.loadingBoolean = false;
+    }, 2000);
+    // this.todosCompleted = this.todosService.todosCompletedList;
+  }
+  ngDoCheck(): void {
+    setTimeout(() => {
+      this.controlLength = true;
+
+      if (this.todosCompleted.length > 0) {
+        this.controlLength = false;
+      }
+    }, 2000);
   }
 }

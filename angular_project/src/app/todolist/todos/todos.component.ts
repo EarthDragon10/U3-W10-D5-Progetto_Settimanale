@@ -54,17 +54,21 @@ export class TodosComponent implements OnInit {
   }
 
   checkCompleteToDo(item: Todo): void {
-    item.completed = true;
+    setTimeout(() => {
+      item.completed = true;
 
-    console.log(this.todoObj);
+      console.log(this.todoObj);
 
-    this.todosService.checkCompleteToDo(item.id);
+      this.todosService.checkCompleteToDo(item.id);
 
-    this.todoArr = this.todosService.todosList;
+      this.todoArr = this.todosService.todosList;
+    }, 2000);
   }
 
   removeToDo(item: Todo): void {
-    this.todosService.removeToDo(item.id);
-    this.todoArr = this.todosService.todosList;
+    setTimeout(() => {
+      this.todosService.removeToDo(item.id);
+      this.todoArr = this.todosService.todosList;
+    }, 2000);
   }
 }
